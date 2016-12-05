@@ -33,3 +33,4 @@ A docker-compose file with:
 ```bash
 docker-compose up
 ```
+DB host is 'mysql' and memcached host is 'memcached'
