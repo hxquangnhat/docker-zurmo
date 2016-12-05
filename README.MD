@@ -24,7 +24,7 @@ docker run --name mysql -itd -p 3306:3306 \
             --sql-mode="NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
 docker run -itd -p 11211:11211 memcached
 ```
-Head to http://local/zurmo/ and start installing zurmo. DB host and memcached host should be IP address of your machine.
+Head to http://localhost/zurmo/ and start installing zurmo. DB host and memcached host should be IP address of your machine.
 # Using docker-compose
 A docker-compose file with:
 - zurmo image
