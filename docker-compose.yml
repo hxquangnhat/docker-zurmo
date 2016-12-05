@@ -1,0 +1,43 @@
+version: "2"
+
+services:
+  zurmo:
+    image: hxquangnhat/zurmo
+    container_name: zurmo
+    hostname: zurmo
+    ports:
+      - "6066:80"
+    networks:
+      - zurmo-net
+    volumes:
+      - zurmo_data:/var/www/html/zurmo
+
+  mysql:
+    image: mysql
+    container_name: mysql-zurmo
+    hostname: mysql-zurmo
+    networks:
+      - zurmo-net
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_DATABASE=zurmo
+      - MYSQL_USER=zurmo
+      - MYSQL_PASSWORD=zurmo
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci --default-storage-engine=INNODB --max-sp-recursion-depth=100 --max-allowed-packet=20M --thread-stack=512K --optimizer-search-depth=0 --sql-mode="NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
+    volumes:
+      - zurmo_mysql_data:/var/lib/mysql
+  
+  memcached:
+    image: memcached
+    container_name: memcached-zurmo
+    hostname: memcached-zurmo
+    networks:
+      - zurmo-net
+
+networks:
+  zurmo-net:
+    driver: bridge
+
+volumes:
+  zurmo_data:
+  zurmo_mysql_data:
