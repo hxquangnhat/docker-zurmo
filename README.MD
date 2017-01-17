@@ -3,7 +3,7 @@
 [![N|Solid](https://github.com/docker/docker/raw/master/docs/static_files/docker-logo-compressed.png)](https://www.docker.com)
 
 
-A dockerfile for Zurmo CRM application..
+A dockerfile for Zurmo CRM application.
 Default username/password/databasename is zurmo
 # How to run
 ```bash
